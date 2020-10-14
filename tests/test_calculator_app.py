@@ -1,6 +1,6 @@
 import pytest
 
-from app import create_app
+from calculator_app.app import create_app
 
 
 @pytest.fixture(scope='session')

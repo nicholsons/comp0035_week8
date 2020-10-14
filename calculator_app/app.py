@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from calculator import Calculator
+from calculator_app.calculator import Calculator
 
 
 def create_app():
