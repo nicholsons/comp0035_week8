@@ -11,7 +11,7 @@ from selenium import webdriver
 from flask import url_for
 from selenium.webdriver.support.select import Select
 
-from app import create_app
+from calculator_app.app import create_app
 
 
 @pytest.fixture(scope="session")
