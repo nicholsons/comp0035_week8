@@ -23,5 +23,6 @@ class Calculator(object):
         return self.first_term / self.second_term
 
     # Write a method to calculate the square of a term (Python ** operator is used to calculate the power of a number)
-
+    def square(self):
+        pass
     # Write a method to calculate the square root of a term
