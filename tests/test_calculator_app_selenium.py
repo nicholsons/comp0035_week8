@@ -1,7 +1,9 @@
-# To run this test on your own PC you will need to have downloaded and configured the correct chromedriver for your
-# operating system and version of the Chrome browser. See https://chromedriver.chromium.org
 # You are not expected to be able to do this for COMP0035, this is for illustration purposes so you can start to
 # see what is possible.
+# To run this test on your own PC you will need to have downloaded and configured the correct chromedriver for your
+# operating system and version of the Chrome browser. See https://chromedriver.chromium.org
+# Chromedriver needs to run in headless mode for Selenium tests using the GitHub actions container. The container has
+# Chrome and Chromedriver so you do not need to explicitly create these in your .yml file
 
 import time
 
@@ -21,10 +23,13 @@ def app():
     return app
 
 
-# Fixture for Chromedriver
 @pytest.fixture(scope="module")
 def driver():
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(chrome_options=options)
     yield driver
     driver.quit()
 
